@@ -11,7 +11,8 @@
     "rollup": "^0.64.0",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.0.0"
-  },"scripts": {
+  },
+  "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "node test/test.js",
@@ -21,4 +22,3 @@
     "dist"
   ]
 }
-
