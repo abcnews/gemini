@@ -7,7 +7,7 @@ export default [
   {
     input: "src/main.js",
     output: {
-      name: "howLongUntilLunch",
+      name: "Gemini",
       file: pkg.browser,
       format: "umd"
     },
