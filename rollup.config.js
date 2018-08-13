@@ -1,5 +1,6 @@
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import json from 'rollup-plugin-json';
 import babel from "rollup-plugin-babel";
 import pkg from "./package.json";
 
@@ -13,8 +14,9 @@ export default [
       format: "umd"
     },
     plugins: [
-      resolve(), // so Rollup can find some packages
-      commonjs(), // so Rollup can convert some packages to an ES module
+      resolve(),
+      commonjs(),
+      json(),
       babel({
         exclude: ["node_modules/**"]
       })
