@@ -1,7 +1,7 @@
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
-import json from 'rollup-plugin-json';
 import babel from "rollup-plugin-babel";
+
 import pkg from "./package.json";
 
 export default [
@@ -16,12 +16,22 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      json(),
-      babel({
-        exclude: ["node_modules/**"]
-      })
+      // babel({
+      //   exclude: ["node_modules/**"]
+      // }),
     ]
   },
+  {
+    input: "src/main.js",
+    external: ["xhr"],
+    output: [{ file: pkg.module, format: "es" }],
+    plugins: [
+     
+      // babel({
+      //   exclude: ["node_modules/**"]
+      // })
+    ]
+  }
 
   // Other builds (just in case)
   // {

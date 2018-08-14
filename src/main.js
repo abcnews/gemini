@@ -1,4 +1,4 @@
-import gemini from "./gemini.js";
+import gemini from "./gemini";
 
 export default function() {
   gemini();

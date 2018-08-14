@@ -5,19 +5,19 @@
   "main": "dist/gemini.cjs.js",
   "module": "dist/gemini.esm.js",
   "browser": "dist/gemini.umd.js",
-  "author": "Joshua Byrd",
+  "author": "Joshua Byrd <phocks@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-preset-env": "^1.6.0",
-    "rollup": "^0.46.0",
+    "rollup": "^0.46.3",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-json": "^3.0.0",
     "rollup-plugin-node-resolve": "^3.0.0"
   },
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "rollup --config",
+    "watch": "rollup --config --watch",
     "test": "node test/test.js",
     "pretest": "npm run build"
   },
