@@ -1,12 +1,11 @@
 import xhr from "xhr";
 
-import getSupplementaryCMID from "./getSupplementaryCMID"
+import { getSupplementaryCMID } from "./utils";
 
 export default function() {
   xhr(
     {
-      url:
-        "http://nucwed.aus.aunty.abc.net.au/news/" + getSupplementaryCMID()
+      url: "http://nucwed.aus.aunty.abc.net.au/news/" + getSupplementaryCMID()
     },
     (err, response, body) => {
       const doc = new DOMParser().parseFromString(body, "text/html");
@@ -15,8 +14,6 @@ export default function() {
 
       if (!startNode || !endNode) {
         console.error(new Error("No content bookends found in document."));
-
-        // return init();
       }
 
       let currentNode = startNode;
@@ -32,9 +29,6 @@ export default function() {
       }
 
       fetchedNodes.forEach(node => {
-        // Use Odyssey API to re-apply smart quotes
-        // window.__ODYSSEY__.utils.misc.smartquotes(node);
-
         // Append fetched content
         injectionRoot.appendChild(node);
       });

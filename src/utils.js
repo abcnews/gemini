@@ -1,6 +1,6 @@
-const SUPPLEMENTARY_CMID_META_SELECTOR = 'meta[name="supplementary"]';
+export function getSupplementaryCMID() {
+  const SUPPLEMENTARY_CMID_META_SELECTOR = 'meta[name="supplementary"]';
 
-const getSupplementaryCMID = () => {
   const metaEl = document.querySelector(SUPPLEMENTARY_CMID_META_SELECTOR);
 
   if (!metaEl) {
@@ -19,5 +19,3 @@ const getSupplementaryCMID = () => {
 
   return cmid;
 };
-
-export default getSupplementaryCMID;
