@@ -1,6 +1,6 @@
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
-import babel from "rollup-plugin-babel";
+import buble from "rollup-plugin-buble";
 
 import pkg from "./package.json";
 
@@ -16,9 +16,10 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      // babel({
-      //   exclude: ["node_modules/**"]
-      // }),
+      buble({
+        // transpile ES2015+ to ES5
+        exclude: ["node_modules/**"]
+      })
     ]
   },
   {
@@ -26,10 +27,10 @@ export default [
     external: ["xhr"],
     output: [{ file: pkg.module, format: "es" }],
     plugins: [
-     
-      // babel({
-      //   exclude: ["node_modules/**"]
-      // })
+      buble({
+        // transpile ES2015+ to ES5
+        exclude: ["node_modules/**"]
+      })
     ]
   }
 

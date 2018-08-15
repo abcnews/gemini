@@ -2,10 +2,10 @@ import xhr from "xhr";
 
 import { getSupplementaryCMID } from "./utils";
 
-export default function() {
+const gemini = () => {
   xhr(
     {
-      url: "http://nucwed.aus.aunty.abc.net.au/news/" + getSupplementaryCMID()
+      url: "/news/" + getSupplementaryCMID()
     },
     (err, response, body) => {
       const doc = new DOMParser().parseFromString(body, "text/html");
@@ -13,12 +13,11 @@ export default function() {
       const endNode = doc.querySelector('a[name="endcontent"]');
 
       if (!startNode || !endNode) {
-        console.error(new Error("No content bookends found in document."));
+        console.error(new Error("Content bookends not found in supplementary document."));
       }
 
       let currentNode = startNode;
       const injectionRoot = document.querySelector('[name="fullscript"]');
-
       let fetchedNodes = [];
 
       while (
@@ -41,3 +40,5 @@ export default function() {
     }
   );
 }
+
+export default gemini;

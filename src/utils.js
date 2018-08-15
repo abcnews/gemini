@@ -1,6 +1,6 @@
-export function getSupplementaryCMID() {
+// Gets the CMID of document provided in meta.data.name
+export const getSupplementaryCMID = () => {
   const SUPPLEMENTARY_CMID_META_SELECTOR = 'meta[name="supplementary"]';
-
   const metaEl = document.querySelector(SUPPLEMENTARY_CMID_META_SELECTOR);
 
   if (!metaEl) {
