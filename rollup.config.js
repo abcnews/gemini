@@ -27,25 +27,24 @@ export default [
     external: ["xhr"],
     output: [{ file: pkg.module, format: "es" }],
     plugins: [
+      // buble({
+      //   // transpile ES2015+ to ES5
+      //   exclude: ["node_modules/**"]
+      // })
+    ]
+  },
+
+  // Other builds (just in case)
+  {
+    input: "src/main.js",
+    external: ["xhr"],
+    output: [
+      { file: pkg.main, format: "cjs" },
+    ],
+    plugins: [
       buble({
-        // transpile ES2015+ to ES5
         exclude: ["node_modules/**"]
       })
     ]
   }
-
-  // Other builds (just in case)
-  // {
-  //   input: "src/main.js",
-  //   external: ["ms"],
-  //   output: [
-  //     { file: pkg.main, format: "cjs" },
-  //     { file: pkg.module, format: "es" }
-  //   ],
-  //   plugins: [
-  //     babel({
-  //       exclude: ["node_modules/**"]
-  //     })
-  //   ]
-  // }
 ];
