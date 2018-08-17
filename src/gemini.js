@@ -2,7 +2,7 @@ import xhr from "xhr";
 
 import { getSupplementaryCMID } from "./utils";
 
-const gemini = () => {
+const gemini = (alternateMountpoint) => {
   xhr(
     {
       url: "/news/" + getSupplementaryCMID()
@@ -17,7 +17,7 @@ const gemini = () => {
       }
 
       let currentNode = startNode;
-      const injectionRoot = document.querySelector('[name="fullscript"]');
+      const injectionRoot = document.querySelector(`[name="${alternateMountpoint}"]` || `[name="fullscript"]`);
       let fetchedNodes = [];
 
       while (

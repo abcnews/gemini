@@ -1,5 +1,5 @@
 import gemini from "./gemini";
 
-export default function() {
-  gemini();
-}
+export const fullReplace = alternateMountPoint => {
+  gemini(alternateMountPoint);
+};

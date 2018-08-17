@@ -22,25 +22,19 @@ export default [
       })
     ]
   },
+  // ES6 modules build
   {
     input: "src/main.js",
     external: ["xhr"],
     output: [{ file: pkg.module, format: "es" }],
-    plugins: [
-      // buble({
-      //   // transpile ES2015+ to ES5
-      //   exclude: ["node_modules/**"]
-      // })
-    ]
+    plugins: []
   },
 
-  // Other builds (just in case)
+  // Common JS build (just in case)
   {
     input: "src/main.js",
     external: ["xhr"],
-    output: [
-      { file: pkg.main, format: "cjs" },
-    ],
+    output: [{ file: pkg.main, format: "cjs" }],
     plugins: [
       buble({
         exclude: ["node_modules/**"]
