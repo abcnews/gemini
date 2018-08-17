@@ -2,7 +2,7 @@ import xhr from "xhr";
 
 import { getSupplementaryCMID } from "./utils";
 
-const gemini = (alternateMountpoint) => {
+const gemini = (alternateMountpoint, callback) => {
   xhr(
     {
       url: "/news/" + getSupplementaryCMID()
@@ -37,6 +37,8 @@ const gemini = (alternateMountpoint) => {
       while (injectionRoot.firstChild)
         parent.insertBefore(injectionRoot.firstChild, injectionRoot);
       parent.removeChild(injectionRoot);
+
+      callback();
     }
   );
 }
