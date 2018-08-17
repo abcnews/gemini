@@ -66,7 +66,7 @@ var gemini = function (callback) {
         { parent.insertBefore(injectionRoot.firstChild, injectionRoot); }
       parent.removeChild(injectionRoot);
 
-      callback();
+      if (callback) { callback(); }
     }
   );
 };

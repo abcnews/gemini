@@ -24,11 +24,6 @@
 
 	var window_1 = win;
 
-	var window$1 = /*#__PURE__*/Object.freeze({
-		default: window_1,
-		__moduleExports: window_1
-	});
-
 	var isFunction_1 = isFunction;
 
 	var toString = Object.prototype.toString;
@@ -44,11 +39,6 @@
 	      fn === window.confirm ||
 	      fn === window.prompt))
 	}
-
-	var isFunction$1 = /*#__PURE__*/Object.freeze({
-		default: isFunction_1,
-		__moduleExports: isFunction_1
-	});
 
 	var trim_1 = createCommonjsModule(function (module, exports) {
 	exports = module.exports = trim;
@@ -67,13 +57,6 @@
 	});
 	var trim_2 = trim_1.left;
 	var trim_3 = trim_1.right;
-
-	var trim = /*#__PURE__*/Object.freeze({
-		default: trim_1,
-		__moduleExports: trim_1,
-		left: trim_2,
-		right: trim_3
-	});
 
 	var fnToStr = Function.prototype.toString;
 
@@ -110,13 +93,6 @@
 		var strClass = toStr.call(value);
 		return strClass === fnClass || strClass === genClass;
 	};
-
-	var isCallable$1 = /*#__PURE__*/Object.freeze({
-		default: isCallable,
-		__moduleExports: isCallable
-	});
-
-	var isCallable$2 = ( isCallable$1 && isCallable ) || isCallable$1;
 
 	var toStr$1 = Object.prototype.toString;
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -157,7 +133,7 @@
 	};
 
 	var forEach = function forEach(list, iterator, thisArg) {
-	    if (!isCallable$2(iterator)) {
+	    if (!isCallable(iterator)) {
 	        throw new TypeError('iterator must be a function');
 	    }
 
@@ -177,15 +153,6 @@
 
 	var forEach_1 = forEach;
 
-	var forEach$1 = /*#__PURE__*/Object.freeze({
-		default: forEach_1,
-		__moduleExports: forEach_1
-	});
-
-	var trim$1 = ( trim && trim_1 ) || trim;
-
-	var forEach$2 = ( forEach$1 && forEach_1 ) || forEach$1;
-
 	var isArray = function(arg) {
 	      return Object.prototype.toString.call(arg) === '[object Array]';
 	    };
@@ -196,12 +163,12 @@
 
 	  var result = {};
 
-	  forEach$2(
-	      trim$1(headers).split('\n')
+	  forEach_1(
+	      trim_1(headers).split('\n')
 	    , function (row) {
 	        var index = row.indexOf(':')
-	          , key = trim$1(row.slice(0, index)).toLowerCase()
-	          , value = trim$1(row.slice(index + 1));
+	          , key = trim_1(row.slice(0, index)).toLowerCase()
+	          , value = trim_1(row.slice(index + 1));
 
 	        if (typeof(result[key]) === 'undefined') {
 	          result[key] = value;
@@ -215,11 +182,6 @@
 
 	  return result
 	};
-
-	var parseHeaders$1 = /*#__PURE__*/Object.freeze({
-		default: parseHeaders,
-		__moduleExports: parseHeaders
-	});
 
 	var immutable = extend;
 
@@ -241,24 +203,11 @@
 	    return target
 	}
 
-	var immutable$1 = /*#__PURE__*/Object.freeze({
-		default: immutable,
-		__moduleExports: immutable
-	});
-
-	var window$2 = ( window$1 && window_1 ) || window$1;
-
-	var isFunction$2 = ( isFunction$1 && isFunction_1 ) || isFunction$1;
-
-	var parseHeaders$2 = ( parseHeaders$1 && parseHeaders ) || parseHeaders$1;
-
-	var xtend = ( immutable$1 && immutable ) || immutable$1;
-
 	var xhr = createXHR;
 	// Allow use of default import syntax in TypeScript
 	var default_1 = createXHR;
-	createXHR.XMLHttpRequest = window$2.XMLHttpRequest || noop;
-	createXHR.XDomainRequest = "withCredentials" in (new createXHR.XMLHttpRequest()) ? createXHR.XMLHttpRequest : window$2.XDomainRequest;
+	createXHR.XMLHttpRequest = window_1.XMLHttpRequest || noop;
+	createXHR.XDomainRequest = "withCredentials" in (new createXHR.XMLHttpRequest()) ? createXHR.XMLHttpRequest : window_1.XDomainRequest;
 
 	forEachArray$1(["get", "put", "post", "patch", "head", "delete"], function(method) {
 	    createXHR[method === "delete" ? "del" : method] = function(uri, options, callback) {
@@ -284,13 +233,13 @@
 	function initParams(uri, options, callback) {
 	    var params = uri;
 
-	    if (isFunction$2(options)) {
+	    if (isFunction_1(options)) {
 	        callback = options;
 	        if (typeof uri === "string") {
 	            params = {uri:uri};
 	        }
 	    } else {
-	        params = xtend(options, {uri: uri});
+	        params = immutable(options, {uri: uri});
 	    }
 
 	    params.callback = callback;
@@ -373,7 +322,7 @@
 	                rawRequest: xhr
 	            };
 	            if(xhr.getAllResponseHeaders){ //remember xhr can in fact be XDR for CORS in IE
-	                response.headers = parseHeaders$2(xhr.getAllResponseHeaders());
+	                response.headers = parseHeaders(xhr.getAllResponseHeaders());
 	            }
 	        } else {
 	            err = new Error("Internal XMLHttpRequest Error");
@@ -557,7 +506,7 @@
 	        { parent.insertBefore(injectionRoot.firstChild, injectionRoot); }
 	      parent.removeChild(injectionRoot);
 
-	      callback();
+	      if (callback) { callback(); }
 	    }
 	  );
 	};

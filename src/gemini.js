@@ -40,7 +40,7 @@ const gemini = (callback) => {
         parent.insertBefore(injectionRoot.firstChild, injectionRoot);
       parent.removeChild(injectionRoot);
 
-      callback();
+      if (callback) callback();
     }
   );
 };
