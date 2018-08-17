@@ -519,7 +519,7 @@
 	  return cmid;
 	};
 
-	var gemini = function (alternateMountpoint, callback) {
+	var gemini = function (callback) {
 	  xhr(
 	    {
 	      url: "/news/" + getSupplementaryCMID()
@@ -536,11 +536,7 @@
 	      }
 
 	      var currentNode = startNode;
-	      var injectionRoot = document.querySelector(
-	        alternateMountpoint
-	          ? ("[name=\"" + alternateMountpoint + "\"]")
-	          : "[name=\"fullscript\"]"
-	      );
+	      var injectionRoot = document.querySelector('[name="fullscript"]');
 	      var fetchedNodes = [];
 
 	      while (
@@ -566,8 +562,8 @@
 	  );
 	};
 
-	var fullReplace = function (alternateMountPoint, callback) {
-	  gemini(alternateMountPoint, callback);
+	var fullReplace = function (callback) {
+	  gemini(callback);
 	};
 
 	exports.fullReplace = fullReplace;

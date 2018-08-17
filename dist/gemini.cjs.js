@@ -28,7 +28,7 @@ var getSupplementaryCMID = function () {
   return cmid;
 };
 
-var gemini = function (alternateMountpoint, callback) {
+var gemini = function (callback) {
   xhr(
     {
       url: "/news/" + getSupplementaryCMID()
@@ -45,11 +45,7 @@ var gemini = function (alternateMountpoint, callback) {
       }
 
       var currentNode = startNode;
-      var injectionRoot = document.querySelector(
-        alternateMountpoint
-          ? ("[name=\"" + alternateMountpoint + "\"]")
-          : "[name=\"fullscript\"]"
-      );
+      var injectionRoot = document.querySelector('[name="fullscript"]');
       var fetchedNodes = [];
 
       while (
@@ -75,8 +71,8 @@ var gemini = function (alternateMountpoint, callback) {
   );
 };
 
-var fullReplace = function (alternateMountPoint, callback) {
-  gemini(alternateMountPoint, callback);
+var fullReplace = function (callback) {
+  gemini(callback);
 };
 
 exports.fullReplace = fullReplace;
