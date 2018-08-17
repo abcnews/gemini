@@ -33,11 +33,17 @@ const gemini = (alternateMountpoint, callback) => {
       const endNode = doc.querySelector('a[name="endcontent"]');
 
       if (!startNode || !endNode) {
-        console.error(new Error("Content bookends not found in supplementary document."));
+        console.error(
+          new Error("Content bookends not found in supplementary document.")
+        );
       }
 
       let currentNode = startNode;
-      const injectionRoot = document.querySelector(`[name="${alternateMountpoint}"]` || `[name="fullscript"]`);
+      const injectionRoot = document.querySelector(
+        alternateMountpoint
+          ? `[name="${alternateMountpoint}"]`
+          : `[name="fullscript"]`
+      );
       let fetchedNodes = [];
 
       while (
