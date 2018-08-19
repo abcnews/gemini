@@ -1,6 +1,6 @@
 {
-  "name": "gemini",
-  "version": "0.0.1",
+  "name": "@abcnews/gemini",
+  "version": "1.0.0",
   "description": "Grab an article and parse it's content",
   "main": "dist/gemini.cjs.js",
   "module": "dist/gemini.esm.js",

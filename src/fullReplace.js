@@ -2,7 +2,7 @@ import xhr from "xhr";
 
 import { getSupplementaryCMID } from "./utils";
 
-const gemini = (callback) => {
+const fullReplace = (callback) => {
   xhr(
     {
       url: "/news/" + getSupplementaryCMID()
@@ -45,4 +45,4 @@ const gemini = (callback) => {
   );
 };
 
-export default gemini;
+export default fullReplace;
