@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var xhr = _interopDefault(require('xhr'));
@@ -28,7 +26,7 @@ var getSupplementaryCMID = function () {
   return cmid;
 };
 
-var gemini = function (callback) {
+var fullReplace = function (callback) {
   xhr(
     {
       url: "/news/" + getSupplementaryCMID()
@@ -71,8 +69,6 @@ var gemini = function (callback) {
   );
 };
 
-var fullReplace = function (callback) {
-  gemini(callback);
-};
+// TODO: Add other functions like one that returns an array of named nodes for Colin
 
-exports.fullReplace = fullReplace;
+module.exports = fullReplace;

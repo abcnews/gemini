@@ -22,7 +22,7 @@ const getSupplementaryCMID = () => {
   return cmid;
 };
 
-const gemini = (callback) => {
+const fullReplace = (callback) => {
   xhr(
     {
       url: "/news/" + getSupplementaryCMID()
@@ -65,8 +65,6 @@ const gemini = (callback) => {
   );
 };
 
-const fullReplace = (callback) => {
-  gemini(callback);
-};
+// TODO: Add other functions like one that returns an array of named nodes for Colin
 
-export { fullReplace };
+export default fullReplace;
