@@ -8,7 +8,6 @@ Install
 npm install @abcnews/gemini
 ```
 
-
 Import
 
 ```javascript

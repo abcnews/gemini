@@ -2,6 +2,7 @@
   "name": "@abcnews/gemini",
   "version": "1.0.0",
   "description": "Grab an article and parse it's content",
+  "repository": "github:abcnews/gemini",
   "main": "dist/gemini.cjs.js",
   "module": "dist/gemini.esm.js",
   "browser": "dist/gemini.umd.js",
