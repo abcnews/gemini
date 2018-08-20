@@ -2,7 +2,7 @@ import xhr from "xhr";
 
 import { getSupplementaryCMID } from "./utils";
 
-const fullReplace = (callback) => {
+export const fullReplace = (callback) => {
   xhr(
     {
       url: "/news/" + getSupplementaryCMID()
@@ -44,7 +44,5 @@ const fullReplace = (callback) => {
     }
   );
 };
-
-export default fullReplace;
 
 // TODO: Add other functions like one that returns an array of named nodes for Colin

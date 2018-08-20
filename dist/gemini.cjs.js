@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var xhr = _interopDefault(require('xhr'));
@@ -71,4 +73,4 @@ var fullReplace = function (callback) {
 
 // TODO: Add other functions like one that returns an array of named nodes for Colin
 
-module.exports = fullReplace;
+exports.fullReplace = fullReplace;

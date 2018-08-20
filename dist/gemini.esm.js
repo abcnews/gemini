@@ -67,4 +67,4 @@ const fullReplace = (callback) => {
 
 // TODO: Add other functions like one that returns an array of named nodes for Colin
 
-export default fullReplace;
+export { fullReplace };

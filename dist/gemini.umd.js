@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.Gemini = factory());
-}(this, (function () { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.Gemini = {})));
+}(this, (function (exports) { 'use strict';
 
 	var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -564,6 +564,8 @@
 
 	// TODO: Add other functions like one that returns an array of named nodes for Colin
 
-	return fullReplace;
+	exports.fullReplace = fullReplace;
+
+	Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
