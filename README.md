@@ -1,6 +1,6 @@
 # Gemini
 
-Grab another CoreMedia article to use dynamically in your story.
+A simple package that grabs another CoreMedia article and extracts the content to use dynamically in your story.
 
 Install
 
@@ -25,3 +25,5 @@ Run
 ```javascript
 gemini.fullReplace(callbackAfterReplace);
 ```
+
+_Based on work by [Colin Gourlay](https://github.com/colingourlay)_
