@@ -11,7 +11,7 @@ npm install @abcnews/gemini
 Import
 
 ```javascript
-import * as gemini from "gemini";
+import * as gemini from "@abcnews/gemini";
 ```
 
 or
