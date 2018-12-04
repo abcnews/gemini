@@ -26,4 +26,18 @@ Run
 gemini.fullReplace(callbackAfterReplace);
 ```
 
+Make sure your original CoreMedia document has in Context Settings
+
+```
+struct
+|
+|- <> meta.data.name
+|  |
+|  |- doc: supplementary=blah blah
+|
+|- <> mobile.meta.data.name
+|  |
+|  |- doc: supplementary=blah blah
+```
+
 _Based on work by [Colin Gourlay](https://github.com/colingourlay)_
