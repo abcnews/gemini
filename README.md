@@ -26,7 +26,11 @@ Run
 gemini.fullReplace(callbackAfterReplace);
 ```
 
-Make sure your original CoreMedia document has in Context Settings
+Make sure your original CoreMedia document has in Context Settings.
+
+It will look for `#fullscript` and mount the fetched content there.
+
+Use `#remove` and `#endremove` to write your fallback content for Apple News and AMP etc.
 
 ```
 struct
