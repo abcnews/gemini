@@ -40,4 +40,6 @@ struct
 |  |- doc: supplementary=blah blah
 ```
 
+And your dynamic content article should have `#content` up top and `#endcontent` down the bottom and everything in between will get pulled in.
+
 _Based on work by [Colin Gourlay](https://github.com/colingourlay)_
